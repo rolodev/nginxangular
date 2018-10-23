@@ -38,7 +38,7 @@
                       <input type="hidden" ng-model="ctrl.user.id" />
                       <div class="row">
                           <div class="form-group col-md-12">
-                              <label class="col-md-2 control-label" for="file">Name</label>
+                              <label class="col-md-2 control-label" for="file">Nombre</label>
                               <div class="col-md-7">
                                   <input type="text" ng-model="ctrl.user.username" name="uname" class="username form-control input-sm" placeholder="Enter your name" required ng-minlength="3"/>
                                   <div class="has-error" ng-show="myForm.$dirty">
@@ -53,21 +53,26 @@
                       
                       <div class="row">
                           <div class="form-group col-md-12">
-                              <label class="col-md-2 control-label" for="file">Address</label>
+                              <label class="col-md-2 control-label" for="file">DNI</label>
                               <div class="col-md-7">
-                                  <input type="text" ng-model="ctrl.user.address" class="form-control input-sm" placeholder="Enter your Address. [This field is validation free]"/>
+                                  <input type="text" ng-model="ctrl.user.address" name="address" class="form-control input-sm" placeholder="Ingresar NIF. [Longitud 9]" required ng-minlength="9" maxlength="9" />
+                                  <div class="has-error" ng-show="myForm.$dirty">
+                                      <span ng-show="myForm.uname.$error.required">Campo requerido</span>
+                                      <span ng-show="myForm.uname.$error.minlength">Longitud minima es 9</span>
+                                      <span ng-show="myForm.uname.$invalid">Este campo es invalido</span>
+                                  </div>
                               </div>
                           </div>
                       </div>
 
                       <div class="row">
                           <div class="form-group col-md-12">
-                              <label class="col-md-2 control-label" for="file">Email</label>
+                              <label class="col-md-2 control-label" for="file">Correo</label>
                               <div class="col-md-7">
-                                  <input type="email" ng-model="ctrl.user.email" name="email" class="email form-control input-sm" placeholder="Enter your Email" required/>
+                                  <input type="email" ng-model="ctrl.user.email" name="email" class="email form-control input-sm" placeholder="Ingresar Correo electronico" required/>
                                   <div class="has-error" ng-show="myForm.$dirty">
-                                      <span ng-show="myForm.email.$error.required">This is a required field</span>
-                                      <span ng-show="myForm.email.$invalid">This field is invalid </span>
+                                      <span ng-show="myForm.email.$error.required">Este campo es obligatorio</span>
+                                      <span ng-show="myForm.email.$invalid">Este campo es invalido</span>
                                   </div>
                               </div>
                           </div>
