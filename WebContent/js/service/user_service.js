@@ -2,7 +2,8 @@
 
 angular.module('myApp').factory('UserService', ['$http', '$q', function($http, $q){
 
-    var REST_SERVICE_URI = 'http://wildflyspringboot-rolodev.10.44.60.208.nip.io/SpringBootHibernate/user/';
+    var REST_SERVICE_USER = 'http://wildflyspringboot-rolodev.10.44.60.208.nip.io/SpringBootHibernate/user/';
+    var REST_SERVICE_VALIDA = 'http://msvalidanif-rolodev.10.44.60.208.nip.io/MSValidaNif/valida/';
 
     var factory = {
         fetchAllUsers: fetchAllUsers,
@@ -15,7 +16,7 @@ angular.module('myApp').factory('UserService', ['$http', '$q', function($http, $
 
     function fetchAllUsers() {
         var deferred = $q.defer();
-        $http.get(REST_SERVICE_URI)
+        $http.get(REST_SERVICE_USER)
             .then(
             function (response) {
                 deferred.resolve(response.data);
@@ -30,7 +31,7 @@ angular.module('myApp').factory('UserService', ['$http', '$q', function($http, $
 
     function createUser(user) {
         var deferred = $q.defer();
-        $http.post(REST_SERVICE_URI, user)
+        $http.post(REST_SERVICE_USER, user)
             .then(
             function (response) {
                 deferred.resolve(response.data);
@@ -46,7 +47,7 @@ angular.module('myApp').factory('UserService', ['$http', '$q', function($http, $
 
     function updateUser(user, id) {
         var deferred = $q.defer();
-        $http.put(REST_SERVICE_URI+id, user)
+        $http.put(REST_SERVICE_USER+id, user)
             .then(
             function (response) {
                 deferred.resolve(response.data);
@@ -61,7 +62,7 @@ angular.module('myApp').factory('UserService', ['$http', '$q', function($http, $
 
     function deleteUser(id) {
         var deferred = $q.defer();
-        $http.delete(REST_SERVICE_URI+id)
+        $http.delete(REST_SERVICE_USER+id)
             .then(
             function (response) {
                 deferred.resolve(response.data);
@@ -72,7 +73,22 @@ angular.module('myApp').factory('UserService', ['$http', '$q', function($http, $
             }
         );
         return deferred.promise;
-    }    
+    }
+    
+    function validaNif(nif) {
+        var deferred = $q.defer();
+        $http.get(REST_SERVICE_VALIDA+nif)
+            .then(
+            function (response) {
+                deferred.resolve(response.data);
+            },
+            function(errResponse){
+                console.error('Error al llamar al ms valida nif');
+                deferred.reject(errResponse);
+            }
+        );
+        return deferred.promise;
+    }
     
 
 }]);
