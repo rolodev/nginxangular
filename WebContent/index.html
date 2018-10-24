@@ -40,7 +40,7 @@
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-label" for="file">Nombre</label>
                               <div class="col-md-7">
-                                  <input type="text" ng-model="ctrl.user.username" name="uname" class="username form-control input-sm" placeholder="Enter your name" required ng-minlength="3"/>
+                                  <input type="text" ng-model="ctrl.user.username" name="uname" class="username form-control input-sm" placeholder="Ingresar nombre y apellidos" required ng-minlength="3"/>
                                   <div class="has-error" ng-show="myForm.$dirty">
                                       <span ng-show="myForm.uname.$error.required">Campo requerido</span>
                                       <span ng-show="myForm.uname.$error.minlength">Longitud minima es 3</span>
@@ -53,13 +53,13 @@
                       
                       <div class="row">
                           <div class="form-group col-md-12">
-                              <label class="col-md-2 control-label" for="file">DNI</label>
+                              <label class="col-md-2 control-label" for="file">NIF</label>
                               <div class="col-md-7">
-                                  <input type="text" ng-model="ctrl.user.address" name="address" class="form-control input-sm" placeholder="Ingresar NIF. [Longitud 9]" required ng-minlength="9" maxlength="9" />
+                                  <input type="text" ng-model="ctrl.user.nif" name="nif" class="form-control input-sm" placeholder="Ingresar NIF. [Longitud 9]" required ng-minlength="9" maxlength="9" />
                                   <div class="has-error" ng-show="myForm.$dirty">
-                                      <span ng-show="myForm.uname.$error.required">Campo requerido</span>
-                                      <span ng-show="myForm.uname.$error.minlength">Longitud minima es 9</span>
-                                      <span ng-show="myForm.uname.$invalid">Este campo es invalido</span>
+                                      <span ng-show="myForm.nif.$error.required">Campo requerido</span>
+                                      <span ng-show="myForm.nif.$error.minlength">Longitud minima es 9</span>
+                                      <span ng-show="myForm.nif.$invalid">Este campo es invalido</span>
                                   </div>
                               </div>
                           </div>
@@ -95,9 +95,9 @@
                       <thead>
                           <tr>
                               <th>ID.</th>
-                              <th>Name</th>
-                              <th>Address</th>
-                              <th>Email</th>
+                              <th>Nombre</th>
+                              <th>NIF</th>
+                              <th>Correo electronico</th>
                               <th width="20%"></th>
                           </tr>
                       </thead>
@@ -105,7 +105,7 @@
                           <tr ng-repeat="u in ctrl.users">
                               <td><span ng-bind="u.id"></span></td>
                               <td><span ng-bind="u.username"></span></td>
-                              <td><span ng-bind="u.address"></span></td>
+                              <td><span ng-bind="u.nif"></span></td>
                               <td><span ng-bind="u.email"></span></td>
                               <td>
                               <button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Editar</button>  <button type="button" ng-click="ctrl.remove(u.id)" class="btn btn-danger custom-width">Eliminar</button>
