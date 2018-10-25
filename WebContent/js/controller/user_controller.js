@@ -57,20 +57,28 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
 
     function submit() {
     	//Llamada al Microservicio de validación NIF
+    	var resultado = false;
     	UserService.validaNif(self.user.nif)
         .then(
         function(d){
-            console.error('valor de la validacion = '+d);
+            console.log('valor de la validacion = '+d);
+            resultado = d;
          }
         );
-        if(self.user.id===null){
-            console.log('Saving New User', self.user);
-            createUser(self.user);
-        }else{
-            updateUser(self.user, self.user.id);
-            console.log('User updated with id ', self.user.id);
-        }
-        reset();
+    	if (resultado == 'true') {
+    		if(self.user.id===null){
+                console.log('Saving New User', self.user);
+                createUser(self.user);
+            }else{
+                updateUser(self.user, self.user.id);
+                console.log('User updated with id ', self.user.id);
+            }
+            reset();
+    		
+    	} else {
+    		self.user.nif.$invalid = true;
+    	}
+        
     }
 
     function edit(id){
