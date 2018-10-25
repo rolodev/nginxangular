@@ -60,9 +60,8 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
     	UserService.validaNif(self.user.nif)
         .then(
         function(d){
-        	console.log('valor de d = ' + d);
-        	console.log('tipo = ' + typeof d);        	 
-        	if (d.trim() == "true") {
+        	console.log('valor de d = ' + d);        	        	 
+        	if (d) {
         		console.log('valor de resultado1 = '+d);
         		if(self.user.id===null){
                     console.log('Saving New User', self.user);
