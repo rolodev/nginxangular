@@ -9,7 +9,8 @@ angular.module('myApp').factory('UserService', ['$http', '$q', function($http, $
         fetchAllUsers: fetchAllUsers,
         createUser: createUser,
         updateUser:updateUser,
-        deleteUser:deleteUser
+        deleteUser:deleteUser,
+        validaNif:validaNif
     };
 
     return factory;
