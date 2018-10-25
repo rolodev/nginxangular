@@ -57,7 +57,7 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
 
     function submit() {
     	//Llamada al Microservicio de validación NIF
-    	UserService.validaNif(nif)
+    	UserService.validaNif(self.user.nif)
         .then(
         function(d){
             console.error('valor de la validacion = '+d);
