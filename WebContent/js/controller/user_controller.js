@@ -63,24 +63,25 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
         function(d){
         	console.log('valor de d = '+d);
             resultado = d;            
-            console.log('valor de resultado = '+resultado);
+            console.log('valor de resultado = '+resultado);            
+        	if (resultado == 'true') {
+        		console.log('valor de resultado1 = '+resultado);
+        		if(self.user.id===null){
+                    console.log('Saving New User', self.user);
+                    createUser(self.user);
+                }else{
+                    updateUser(self.user, self.user.id);
+                    console.log('User updated with id ', self.user.id);
+                }
+                reset();
+        		
+        	} else {
+        		console.log('valor de resultado2 = '+resultado);
+        		$scope.myForm.nif.$invalid = true;
+        	}
          }
         );
-    	console.log('valor de resultado1 = '+resultado);
-    	if (resultado == 'true') {
-    		if(self.user.id===null){
-                console.log('Saving New User', self.user);
-                createUser(self.user);
-            }else{
-                updateUser(self.user, self.user.id);
-                console.log('User updated with id ', self.user.id);
-            }
-            reset();
-    		
-    	} else {
-    		console.log('valor de resultado2 = '+resultado);
-    		$scope.myForm.nif.$invalid = true;
-    	}
+    	
         
     }
 
