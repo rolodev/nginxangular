@@ -3,7 +3,7 @@
 angular.module('myApp').factory('UserService', ['$http', '$q', function($http, $q){
 
     var REST_SERVICE_USER = 'http://wildflyspringboot-rolodev.10.44.60.208.nip.io/SpringBootHibernate/user/';
-    var REST_SERVICE_VALIDA = 'http://msvalidanif-rolodev.10.44.60.208.nip.io/MSValidaNif/valida/';
+    var REST_SERVICE_VALIDA = 'http://route-validanif-labinnovacion.10.44.60.208.nip.io/MSValidaNif/valida/';
 
     var factory = {
         fetchAllUsers: fetchAllUsers,

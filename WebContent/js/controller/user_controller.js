@@ -57,6 +57,12 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
 
     function submit() {
     	//Llamada al Microservicio de validación NIF
+    	UserService.validaNif(nif)
+        .then(
+        function(d){
+            console.error('valor de la validacion = '+d);
+         }
+        );
         if(self.user.id===null){
             console.log('Saving New User', self.user);
             createUser(self.user);
