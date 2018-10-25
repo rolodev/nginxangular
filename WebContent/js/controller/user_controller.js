@@ -76,7 +76,7 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
             reset();
     		
     	} else {
-    		self.user.nif.$invalid = true;
+    		$scope.myForm.nif.$invalid = true;
     	}
         
     }
