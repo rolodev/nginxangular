@@ -62,7 +62,7 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
         .then(
         function(d){
         	console.log('valor de d = '+d);            
-        	if (d == "true") {
+        	if (d.trim() == "true") {
         		console.log('valor de resultado1 = '+d);
         		if(self.user.id===null){
                     console.log('Saving New User', self.user);
