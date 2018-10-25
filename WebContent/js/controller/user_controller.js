@@ -60,8 +60,10 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
     	var resultado = false;
     	UserService.validaNif(self.user.nif)
         .then(
-        function(d){            
-            resultado = d;
+        function(d){
+        	console.log('valor de d = '+d);
+            resultado = d;            
+            console.log('valor de resultado = '+resultado);
          }
         );
     	console.log('valor de resultado1 = '+resultado);
