@@ -61,11 +61,9 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
     	UserService.validaNif(self.user.nif)
         .then(
         function(d){
-        	console.log('valor de d = '+d);
-            resultado = d;            
-            console.log('valor de resultado = '+resultado);            
-        	if (resultado == 'true') {
-        		console.log('valor de resultado1 = '+resultado);
+        	console.log('valor de d = '+d);            
+        	if (d == "true") {
+        		console.log('valor de resultado1 = '+d);
         		if(self.user.id===null){
                     console.log('Saving New User', self.user);
                     createUser(self.user);
@@ -76,7 +74,7 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
                 reset();
         		
         	} else {
-        		console.log('valor de resultado2 = '+resultado);
+        		console.log('valor de resultado2 = '+d);
         		$scope.myForm.nif.$invalid = true;
         	}
          }
